@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Guest Cards — Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f3f0;
+    padding: 40px 24px;
+    color: #2c2c2c;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  .sub { color: #888; margin-bottom: 32px; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  th { background: #2c2c2c; color: white; padding: 14px 16px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  td { padding: 14px 16px; border-bottom: 1px solid #f0ebe3; font-size: 14px; }
+  tr:last-child td { border-bottom: none; }
+  a { color: #2d6a4f; font-weight: 500; }
+  .mono { font-family: monospace; color: #666; }
+  .link-input { width: 100%; padding: 6px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px; font-family: monospace; background: #fafafa; cursor: pointer; }
+  .link-input:focus { outline: 2px solid #2d6a4f; }
+  .instructions { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .instructions h2 { font-size: 16px; margin-bottom: 12px; }
+  .instructions p { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Guest Cards Dashboard</h1>
+  <p class="sub">Preview each card, copy the link, and text it to your guests.</p>
+  <div class="instructions">
+    <h2>Quick Start</h2>
+    <p>Once deployed, replace <strong>[YOUR-URL]</strong> below with your actual GitHub Pages URL.</p>
+    <p>Then click any link field to copy it — paste it into a text message and send!</p>
+  </div>
+  <table>
+    <thead>
+      <tr><th>Guest</th><th>Phone</th><th>Preview</th><th>Link to Text</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><strong>Kelsey &amp; Robert Eubank</strong></td>
+      <td class="mono">(704) 941-7346</td>
+      <td><a href="kelsey-and-robert-eubank.html" target="_blank">Preview Card</a></td>
+      <td><input class="link-input" value="[YOUR-URL]/kelsey-and-robert-eubank.html" readonly onclick="this.select(); document.execCommand('copy');"></td>
+    </tr>
+    <tr>
+      <td><strong>Andrew Johnston</strong></td>
+      <td class="mono">(818) 687-8444</td>
+      <td><a href="andrew-johnston.html" target="_blank">Preview Card</a></td>
+      <td><input class="link-input" value="[YOUR-URL]/andrew-johnston.html" readonly onclick="this.select(); document.execCommand('copy');"></td>
+    </tr>
+    <tr>
+      <td><strong>Ian McNerney</strong></td>
+      <td class="mono">(703) 298-4849</td>
+      <td><a href="ian-mcnerney.html" target="_blank">Preview Card</a></td>
+      <td><input class="link-input" value="[YOUR-URL]/ian-mcnerney.html" readonly onclick="this.select(); document.execCommand('copy');"></td>
+    </tr>
+    <tr>
+      <td><strong>Lee Lowden</strong></td>
+      <td class="mono">(203) 247-7709</td>
+      <td><a href="lee-lowden.html" target="_blank">Preview Card</a></td>
+      <td><input class="link-input" value="[YOUR-URL]/lee-lowden.html" readonly onclick="this.select(); document.execCommand('copy');"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
