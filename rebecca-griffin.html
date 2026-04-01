@@ -405,7 +405,7 @@
         <div class="rsvp-row needs-response" id="row-cookout">
           <span class="rsvp-label">
             Thursday Cookout
-            <span class="rsvp-detail">6:00 PM &middot; Tennis Court Pavilion</span>
+            <span class="rsvp-detail">Hosted by Nickle Siblings &middot; 6:00 PM &middot; Tennis Court Pavilion</span>
           </span>
           <div class="btn-group">
             <button class="rsvp-btn btn-unselected" id="cookout-yes" onclick="toggleRSVP('cookout', 'yes')">Yes</button>
@@ -424,12 +424,22 @@
         </div>
         <div class="rsvp-row needs-response" id="row-pickleball">
           <span class="rsvp-label">
-            Friday Pickleball
-            <span class="rsvp-detail">Timing TBD: Late Morning / Early Afternoon &middot; Pickleball Courts</span>
+            Friday Pickleball &amp; Lunch
+            <span class="rsvp-detail">11:30 AM &middot; Pickleball Courts @ Tennis Facility</span>
           </span>
           <div class="btn-group">
             <button class="rsvp-btn btn-unselected" id="pickleball-yes" onclick="toggleRSVP('pickleball', 'yes')">Yes</button>
             <button class="rsvp-btn btn-unselected" id="pickleball-no" onclick="toggleRSVP('pickleball', 'no')">No</button>
+          </div>
+        </div>
+        <div class="rsvp-row needs-response" id="row-satgolf">
+          <span class="rsvp-label">
+            Saturday Morning Golf
+            <span class="rsvp-detail">DETAILS TBD &middot; John&#39;s Island</span>
+          </span>
+          <div class="btn-group">
+            <button class="rsvp-btn btn-unselected" id="satgolf-yes" onclick="toggleRSVP('satgolf', 'yes')">Yes</button>
+            <button class="rsvp-btn btn-unselected" id="satgolf-no" onclick="toggleRSVP('satgolf', 'no')">No</button>
           </div>
         </div>
     </div>
@@ -473,7 +483,8 @@
   const responses = {
     cookout: 'unknown',
     golf: 'unknown',
-    pickleball: 'unknown'
+    pickleball: 'unknown',
+    satgolf: 'unknown'
   };
 
   function toggleRSVP(field, value) {
@@ -506,9 +517,10 @@
     body += "John's Island Guest Card Responses\n";
     body += '================================\n\n';
     body += 'RSVP:\n';
-    body += '  Thursday Cookout (6 PM, Tennis Court Pavilion): ' + (responses.cookout === 'unknown' ? '\u2014' : responses.cookout.toUpperCase()) + '\n';
+    body += '  Thursday Cookout \u2014 Hosted by Nickle Siblings (6 PM, Tennis Court Pavilion): ' + (responses.cookout === 'unknown' ? '\u2014' : responses.cookout.toUpperCase()) + '\n';
     body += '  Friday Morning Golf (9:00\u20139:50 AM, North Course): ' + (responses.golf === 'unknown' ? '\u2014' : responses.golf.toUpperCase()) + '\n';
-    body += '  Friday Pickleball (TBD, Pickleball Courts): ' + (responses.pickleball === 'unknown' ? '\u2014' : responses.pickleball.toUpperCase()) + '\n';
+    body += '  Friday Pickleball & Lunch (11:30 AM, Pickleball Courts @ Tennis Facility): ' + (responses.pickleball === 'unknown' ? '\u2014' : responses.pickleball.toUpperCase()) + '\n';
+    body += '  Saturday Morning Golf (Details TBD, John\'s Island): ' + (responses.satgolf === 'unknown' ? '\u2014' : responses.satgolf.toUpperCase()) + '\n';
     body += '\nDietary Restrictions (Reception & Dinner): ' + (dietary || 'None') + '\n';
     if (notes) {
       body += '\nCorrections / Notes:\n' + notes + '\n';
@@ -528,6 +540,7 @@
           cookout: responses.cookout,
           golf: responses.golf,
           pickleball: responses.pickleball,
+          satgolf: responses.satgolf,
           dietary: dietary || 'None',
           notes: notes || '',
       property: '400 Beach Road Apt. 221',
