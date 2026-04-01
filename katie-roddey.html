@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Katie Roddey — John's Island Guest Card</title>
+<title>Katie Roddey &#8212; John&#39;s Island Guest Card</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -317,6 +317,17 @@
     color: #c0b8ae;
   }
 
+  /* --- Friday Dinner Info --- */
+  .dinner-info {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #5a5550;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, #fdfbf6 0%, #f8f4ec 100%);
+    border-radius: 14px;
+    border-left: 3px solid #d4a853;
+  }
+
   /* --- Submit --- */
   .submit-btn {
     display: block;
@@ -375,7 +386,7 @@
 
 <div class="card">
   <div class="card-header">
-    <div class="header-label">John's Island Club</div>
+    <div class="header-label">John&#39;s Island Club</div>
     <div class="greeting">Katie Roddey</div>
     <div class="subtitle">Guest Membership Card Information</div>
     <div class="header-accent"></div>
@@ -384,7 +395,7 @@
   <div class="card-body">
 
     <p class="intro-text">
-      We look forward to seeing everyone in Vero soon! In order to secure Guest Membership Cards & Privileges, please confirm the information below is correct and fill in any TBD items as soon as possible.
+      We look forward to seeing everyone in Vero soon! In order to secure Guest Membership Cards &amp; Privileges, please confirm the information below is correct and fill in any TBD items as soon as possible.
     </p>
 
     <div class="section">
@@ -413,15 +424,15 @@
       <div class="section-title">Your Accommodation</div>
       <div class="info-row">
         <span class="info-label">Property</span>
-        <input type="text" class="tbd-input" id="tbd-property" placeholder="TBD — Enter if known" oninput="markFilled(this)">
+        <input type="text" class="tbd-input" id="tbd-property" placeholder="TBD &#8212; Enter if known" oninput="markFilled(this)">
       </div>
       <div class="info-row">
         <span class="info-label">Arrival</span>
-        <input type="text" class="tbd-input" id="tbd-arrival" placeholder="TBD — Enter date" oninput="markFilled(this)">
+        <input type="text" class="tbd-input" id="tbd-arrival" placeholder="TBD &#8212; Enter date" oninput="markFilled(this)">
       </div>
       <div class="info-row">
         <span class="info-label">Departure</span>
-        <input type="text" class="tbd-input" id="tbd-departure" placeholder="TBD — Enter date" oninput="markFilled(this)">
+        <input type="text" class="tbd-input" id="tbd-departure" placeholder="TBD &#8212; Enter date" oninput="markFilled(this)">
       </div>
       <div class="info-row">
         <span class="info-label">Nights</span>
@@ -467,21 +478,30 @@
     </div>
 
     <div class="section">
-      <div class="section-title">Dietary Restrictions</div>
+      <div class="section-title">Dietary Restrictions &#8212; For Reception &amp; Dinner</div>
       <textarea class="text-input" id="dietary" placeholder="Any allergies or dietary needs?"></textarea>
     </div>
 
     <div class="divider"></div>
 
     <div class="section">
-      <div class="section-title">Corrections & Notes</div>
+      <div class="section-title">Corrections &amp; Notes</div>
       <textarea class="notes-input" id="notes" placeholder="Need to update your billing address, cell phone, or email? Any questions or special requests? Let us know here."></textarea>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-title">Friday Evening Dining</div>
+      <div class="dinner-info">
+        Guests are welcome to make their own dinner plans on Friday evening. There are a variety of nice restaurants in Vero Beach and for those with a John&#39;s Island Club guest membership card, dining at the Beach Club is a great option. In addition to offering a full dinner menu, on Friday night the Club will be offering its famous Pasta Night. Dinner is served there from 6:00pm &#8211; 8:30pm. The bride and groom will be having dinner at the Beach Club.
+      </div>
     </div>
 
     <button class="submit-btn" onclick="submitCard()">Send My Responses</button>
 
     <div class="footer-note">
-      Info shown is what we have on file.<br>Please update anything that's changed.
+      Info shown is what we have on file.<br>Please update anything that&#39;s changed.
     </div>
   </div>
 </div>
@@ -489,7 +509,7 @@
 <div class="success-overlay" id="successOverlay">
   <div class="success-icon">&#10003;</div>
   <div class="success-title">Responses Sent!</div>
-  <div class="success-sub">Thanks, Katie! You're all set.</div>
+  <div class="success-sub">Thanks, Katie! You&#39;re all set.</div>
 </div>
 
 <script>
@@ -538,23 +558,49 @@
     const subject = encodeURIComponent('Katie Roddey \u2014 Guest Card RSVP');
 
     let body = name + '\n';
-    body += 'John\'s Island Guest Card Responses\n';
+    body += "John's Island Guest Card Responses\n";
     body += '================================\n\n';
     body += 'Accommodation:\n';
     body += '  Property: ' + property + '\n';
     body += '  Arrival: ' + arrival + '\n';
     body += '  Departure: ' + departure + '\n';
-    body += '  Nights: ' + nights + '\n';
-    body += '\nRSVP:\n';
+    body += '  Nights: ' + nights + '\n\n';
+    body += 'RSVP:\n';
     body += '  Thursday Cookout (6 PM, Tennis Court Pavilion): ' + (responses.cookout === 'unknown' ? '\u2014' : responses.cookout.toUpperCase()) + '\n';
     body += '  Friday Morning Golf (9:00\u20139:50 AM, North Course): ' + (responses.golf === 'unknown' ? '\u2014' : responses.golf.toUpperCase()) + '\n';
     body += '  Friday Pickleball (TBD, Pickleball Courts): ' + (responses.pickleball === 'unknown' ? '\u2014' : responses.pickleball.toUpperCase()) + '\n';
-    body += '\nDietary Restrictions: ' + (dietary || 'None') + '\n';
+    body += '\nDietary Restrictions (Reception & Dinner): ' + (dietary || 'None') + '\n';
     if (notes) {
       body += '\nCorrections / Notes:\n' + notes + '\n';
     }
 
-    window.location.href = 'mailto:RN@814consulting.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+    // Post to Google Sheet for tracking
+    const sheetUrl = 'https://script.google.com/macros/s/AKfycbxWY6BShEUKm6SPtRUgExi01zF0IEPyLQpBXC_Y5HpIEYEPD-BRY4ZX5ICrsaV-zXM_Hg/exec';
+    if (sheetUrl && sheetUrl !== 'PLACEHOLDER_WEBHOOK_URL') {
+      fetch(sheetUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          timestamp: new Date().toISOString(),
+          name: name,
+          guestCard: 'Katie Roddey',
+          cookout: responses.cookout,
+          golf: responses.golf,
+          pickleball: responses.pickleball,
+          dietary: dietary || 'None',
+          notes: notes || '',
+      property: property,
+      arrival: arrival,
+      departure: departure,
+      nights: nights,
+          emailBody: body
+        })
+      }).catch(function() {});
+    }
+
+    // Open email with all recipients
+    window.location.href = 'mailto:RN@814consulting.com?cc=thenickles2026@gmail.com,emilycdeerin@gmail.com&subject=' + subject + '&body=' + encodeURIComponent(body);
   }
 </script>
 
