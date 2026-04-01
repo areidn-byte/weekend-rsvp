@@ -69,7 +69,7 @@
       <div class="info-row"><span class="info-label">Name</span><span class="info-value small">Dr. Kelsey Kuhn Eubank &amp; Mr. Robert Jackson Eubank</span></div>
       <div class="info-row"><span class="info-label">Billing Address</span><span class="info-value small">3322 38th Avenue W<br>Seattle, Washington 98199</span></div>
       <div class="info-row"><span class="info-label">Email</span><span class="info-value small">kelseyandjackson@gmail.com</span></div>
-      <div class="info-row"><span class="info-label">Phone</span><span class="info-value small">(704) 941-7346</span></div>
+      <div class="info-row"><span class="info-label">Cell Phone</span><span class="info-value small">(704) 941-7346</span></div>
     </div>
     <div class="divider"></div>
     <div class="section">
@@ -93,7 +93,7 @@
     <div class="divider"></div>
     <div class="section">
       <div class="section-title">Corrections &amp; Notes</div>
-      <textarea class="notes-input" id="notes" placeholder="Need to update your billing address, phone, or email? Any questions or special requests? Let us know here."></textarea>
+      <textarea class="notes-input" id="notes" placeholder="Need to update your billing address, cell phone, or email? Any questions or special requests? Let us know here."></textarea>
     </div>
     <button class="submit-btn" onclick="submitCard()">Send My Responses</button>
     <div class="footer-note">Info shown is what we have on file.<br>Please update anything that's changed.</div>
@@ -106,4 +106,4 @@ function toggleRSVP(field,value){const yesBtn=document.getElementById(field+'-ye
 function submitCard(){const dietary=document.getElementById('dietary').value;const notes=document.getElementById('notes').value;const name='Dr. Kelsey Kuhn Eubank & Mr. Robert Jackson Eubank';const subject=encodeURIComponent('Kelsey & Robert Eubank \u2014 Guest Card RSVP');let body=name+'\n';body+="John's Island Guest Card Responses\n";body+='================================\n\n';body+='RSVP:\n';body+='  Thursday Cookout (6 PM, Tennis Court Pavilion): '+(responses.cookout==='unknown'?'\u2014':responses.cookout.toUpperCase())+'\n';body+='  Friday Morning Golf (9:00\u20139:50 AM, North Course): '+(responses.golf==='unknown'?'\u2014':responses.golf.toUpperCase())+'\n';body+='  Friday Pickleball (TBD, Pickleball Courts): '+(responses.pickleball==='unknown'?'\u2014':responses.pickleball.toUpperCase())+'\n';body+='\nDietary Restrictions: '+(dietary||'None')+'\n';if(notes){body+='\nCorrections / Notes:\n'+notes+'\n';}window.location.href='mailto:RN@814consulting.com?subject='+subject+'&body='+encodeURIComponent(body);}
 </script>
 </body>
-                                                                                                           </html>
+       </html>
