@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Lee Lowden — Weekend Info</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(145deg, #faf7f2 0%, #f0ebe3 40%, #e8e0d4 100%); min-height: 100vh; padding: 24px 16px 60px; color: #2c2c2c; display: flex; justify-content: center; align-items: flex-start; }
+  .card { width: 100%; max-width: 440px; background: white; border-radius: 24px; box-shadow: 0 12px 48px rgba(0,0,0,0.08), 0 2px 12px rgba(0,0,0,0.04); overflow: hidden; position: relative; }
+  .card-header { background: linear-gradient(145deg, #3a3a3a 0%, #1a1a1a 100%); color: white; padding: 36px 32px 36px; text-align: center; position: relative; }
+  .card-header::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 24px; background: white; border-radius: 24px 24px 0 0; }
+  .greeting { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.3px; line-height: 1.2; }
+  .subtitle { font-size: 12px; opacity: 0.55; font-weight: 400; letter-spacing: 2.5px; text-transform: uppercase; }
+  .card-body { padding: 20px 28px 36px; }
+  .section { margin-bottom: 24px; } .section:last-child { margin-bottom: 0; }
+  .section-title { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #b0a89e; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f0ebe3; }
+  .info-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 7px 0; font-size: 14px; line-height: 1.5; }
+  .info-label { color: #a0a0a0; font-weight: 400; flex-shrink: 0; margin-right: 16px; min-width: 68px; font-size: 13px; }
+  .info-value { text-align: right; font-weight: 500; color: #2c2c2c; } .info-value.small { font-size: 13px; font-weight: 400; color: #555; }
+  .divider { height: 1px; background: linear-gradient(to right, transparent 5%, #e8e0d4 50%, transparent 95%); margin: 6px 0 24px; }
+  .rsvp-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #f5f2ed; } .rsvp-row:last-of-type { border-bottom: none; }
+  .rsvp-label { font-size: 14px; font-weight: 400; color: #444; flex: 1; } .needs-response .rsvp-label { font-weight: 500; color: #2c2c2c; }
+  .btn-group { display: flex; gap: 8px; flex-shrink: 0; }
+  .rsvp-btn { min-width: 54px; height: 38px; border-radius: 12px; border: 2px solid #e0dcd6; background: white; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s ease; font-family: 'Inter', sans-serif; } .rsvp-btn:active { transform: scale(0.93); }
+  .btn-selected-yes { background: #2d6a4f; color: white; border-color: #2d6a4f; box-shadow: 0 2px 8px rgba(45,106,79,0.25); }
+  .btn-selected-no { background: #c1564e; color: white; border-color: #c1564e; box-shadow: 0 2px 8px rgba(193,86,78,0.25); }
+  .btn-unselected { background: white; color: #bbb; border-color: #e0dcd6; } .needs-response .btn-unselected { border-color: #d4a853; color: #c49a3c; animation: soft-glow 2.5s ease-in-out infinite; }
+  @keyframes soft-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,83,0); } 50% { box-shadow: 0 0 0 3px rgba(212,168,83,0.15); } }
+  .text-input, .notes-input { width: 100%; padding: 14px 16px; border: 2px solid #e8e4de; border-radius: 14px; font-size: 15px; font-family: 'Inter', sans-serif; color: #2c2c2c; background: #fafaf8; transition: border-color 0.2s, background 0.2s; resize: none; appearance: none; -webkit-appearance: none; }
+  .text-input { min-height: 48px; } .notes-input { min-height: 88px; resize: vertical; }
+  .text-input:focus, .notes-input:focus { outline: none; border-color: #2d6a4f; background: white; box-shadow: 0 0 0 3px rgba(45,106,79,0.08); }
+  .text-input::placeholder, .notes-input::placeholder { color: #c0b8ae; }
+  .submit-btn { display: block; width: 100%; padding: 18px; background: linear-gradient(145deg, #2d6a4f 0%, #1b4332 100%); color: white; border: none; border-radius: 16px; font-size: 16px; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.2s; margin-top: 10px; letter-spacing: 0.5px; box-shadow: 0 4px 16px rgba(45,106,79,0.2); } .submit-btn:active { transform: scale(0.97); }
+  .footer-note { font-size: 11.5px; color: #b8b0a6; text-align: center; margin-top: 18px; font-style: italic; line-height: 1.5; }
+  .success-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(45,106,79,0.92); z-index: 100; justify-content: center; align-items: center; flex-direction: column; color: white; text-align: center; padding: 40px; }
+  .success-overlay.show { display: flex; } .success-icon { font-size: 64px; margin-bottom: 20px; } .success-title { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 8px; } .success-sub { font-size: 15px; opacity: 0.8; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="card-header"><div class="greeting">Lee Lowden</div><div class="subtitle">Weekend Details</div></div>
+  <div class="card-body">
+    <div class="section"><div class="section-title">Your Information on File</div>
+      <div class="info-row"><span class="info-label">Name</span><span class="info-value small">Mr. & Mrs. Lee Russell Lowden</span></div>
+      <div class="info-row"><span class="info-label">Address</span><span class="info-value small">1000 Brantham Court<br>Charlotte, North Carolina 28211</span></div>
+      <div class="info-row"><span class="info-label">Email</span><span class="info-value small">leelowden1@gmail.com</span></div>
+      <div class="info-row"><span class="info-label">Phone</span><span class="info-value small">(203) 247-7709</span></div>
+    </div>
+    <div class="divider"></div>
+    <div class="section"><div class="section-title">Your Accommodation</div>
+      <div class="info-row"><span class="info-label">Property</span><span class="info-value">400 Beach Road Apt. 253</span></div>
+      <div class="info-row"><span class="info-label">Arrival</span><span class="info-value">Thursday, April 30</span></div>
+      <div class="info-row"><span class="info-label">Departure</span><span class="info-value">Sunday, May 03</span></div>
+      <div class="info-row"><span class="info-label">Nights</span><span class="info-value">3</span></div>
+    </div>
+    <div class="divider"></div>
+    <div class="section"><div class="section-title">RSVP — Tap to Confirm</div>
+      <div class="rsvp-row prefilled" id="row-cookout"><span class="rsvp-label">Thursday Cookout</span><div class="btn-group"><button class="rsvp-btn btn-selected-yes" id="cookout-yes" onclick="toggleRSVP('cookout','yes')">Yes</button><button class="rsvp-btn btn-unselected" id="cookout-no" onclick="toggleRSVP('cookout','no')">No</button></div></div>
+      <div class="rsvp-row needs-response" id="row-golf"><span class="rsvp-label">Friday Morning Golf</span><div class="btn-group"><button class="rsvp-btn btn-unselected" id="golf-yes" onclick="toggleRSVP('golf','yes')">Yes</button><button class="rsvp-btn btn-unselected" id="golf-no" onclick="toggleRSVP('golf','no')">No</button></div></div>
+      <div class="rsvp-row needs-response" id="row-pickleball"><span class="rsvp-label">Friday Morning Pickleball</span><div class="btn-group"><button class="rsvp-btn btn-unselected" id="pickleball-yes" onclick="toggleRSVP('pickleball','yes')">Yes</button><button class="rsvp-btn btn-unselected" id="pickleball-no" onclick="toggleRSVP('pickleball','no')">No</button></div></div>
+    </div>
+    <div class="section"><div class="section-title">Dietary Restrictions</div><textarea class="text-input" id="dietary" placeholder="Any allergies or dietary needs?"></textarea></div>
+    <div class="divider"></div>
+    <div class="section"><div class="section-title">Corrections & Notes</div><textarea class="notes-input" id="notes" placeholder="Need to update your address, phone, or email? Any questions or special requests? Let us know here."></textarea></div>
+    <button class="submit-btn" onclick="submitCard()">Send My Responses</button>
+    <div class="footer-note">Info shown is what we have on file.<br>Please update anything that's changed.</div>
+  </div>
+</div>
+<div class="success-overlay" id="successOverlay"><div class="success-icon">&#10003;</div><div class="success-title">Responses Sent!</div><div class="success-sub">Thanks, Lee! You're all set.</div></div>
+<script>
+  const responses = {cookout:'yes',golf:'unknown',pickleball:'unknown'};
+  function toggleRSVP(field,value){const yesBtn=document.getElementById(field+'-yes');const noBtn=document.getElementById(field+'-no');const row=document.getElementById('row-'+field);if(value==='yes'){yesBtn.className='rsvp-btn btn-selected-yes';noBtn.className='rsvp-btn btn-unselected';responses[field]='yes';}else{noBtn.className='rsvp-btn btn-selected-no';yesBtn.className='rsvp-btn btn-unselected';responses[field]='no';}row.classList.remove('needs-response');row.classList.add('prefilled');}
+  function submitCard(){const dietary=document.getElementById('dietary').value;const notes=document.getElementById('notes').value;const name='Mr. & Mrs. Lee Russell Lowden';const subject=encodeURIComponent('Lee Lowden \u2014 Weekend RSVP');let body=name+'\nWeekend Responses\n================================\n\nRSVP:\n  Thursday Cookout: '+(responses.cookout==='unknown'?'\u2014':responses.cookout.toUpperCase())+'\n  Friday Morning Golf: '+(responses.golf==='unknown'?'\u2014':responses.golf.toUpperCase())+'\n  Friday Morning Pickleball: '+(responses.pickleball==='unknown'?'\u2014':responses.pickleball.toUpperCase())+'\n\nDietary Restrictions: '+(dietary||'None')+'\n';if(notes){body+='\nCorrections / Notes:\n'+notes+'\n';}window.location.href='mailto:RN@814consulting.com?subject='+subject+'&body='+encodeURIComponent(body);}
+</script>
+</body>
+                                                                                                                </html>
