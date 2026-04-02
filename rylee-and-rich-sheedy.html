@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Katie Roddey &#8212; John&#39;s Island Guest Card</title>
+<title>Rylee &amp; Rich Sheedy &#8212; John&#39;s Island Guest Card</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -51,25 +51,6 @@
   .info-value { text-align: right; font-weight: 500; color: #2c2c2c; }
   .info-value.small { font-size: 13px; font-weight: 400; color: #555; }
   .divider { height: 1px; background: linear-gradient(to right, transparent 5%, #e8e0d4 50%, transparent 95%); margin: 6px 0 24px; }
-
-  .tbd-input {
-    text-align: right; font-size: 13px; font-weight: 500;
-    font-family: 'Inter', sans-serif; color: #c49a3c; background: #fffdf5;
-    border: 2px dashed #d4a853; border-radius: 10px; padding: 6px 12px;
-    min-width: 140px; max-width: 220px; transition: all 0.2s;
-    appearance: none; -webkit-appearance: none;
-    animation: soft-glow 2.5s ease-in-out infinite;
-  }
-  .tbd-input:focus {
-    outline: none; border-color: #1a5c5a; border-style: solid;
-    color: #2c2c2c; background: white;
-    box-shadow: 0 0 0 3px rgba(26,92,90,0.08); animation: none;
-  }
-  .tbd-input::placeholder { color: #d4a853; font-style: italic; font-weight: 400; }
-  .tbd-input.filled {
-    border-style: solid; border-color: #1a5c5a;
-    color: #2c2c2c; background: white; animation: none;
-  }
 
   .rsvp-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #f5f2ed; }
   .rsvp-row:last-of-type { border-bottom: none; }
@@ -131,7 +112,7 @@
 <div class="card">
   <div class="card-header">
     <div class="header-label">John&#39;s Island Club</div>
-    <div class="greeting">Katie Roddey</div>
+    <div class="greeting">Rylee &amp; Rich Sheedy</div>
     <div class="subtitle">Guest Membership Card Information</div>
     <div class="header-accent"></div>
   </div>
@@ -146,19 +127,19 @@
       <div class="section-title">Your Information on File</div>
       <div class="info-row">
         <span class="info-label">Name</span>
-        <span class="info-value small">Mr. &amp; Mrs. John Gardiner Richards Roddey</span>
+        <span class="info-value small">Mr. &amp; Mrs. Richmond English Sheedy</span>
       </div>
       <div class="info-row">
         <span class="info-label">Billing Address</span>
-        <span class="info-value small">317 Brandywine Road<br>Charlotte, North Carolina 28209</span>
+        <span class="info-value small">57 Kennedy Street<br>Alexandria, Virginia 22305</span>
       </div>
       <div class="info-row">
         <span class="info-label">Email</span>
-        <span class="info-value small">katieandrichroddey@gmail.com</span>
+        <span class="info-value small">ryleekwelker@gmail.com</span>
       </div>
       <div class="info-row">
         <span class="info-label">Cell Phone</span>
-        <span class="info-value small">(240) 818-3533</span>
+        <span class="info-value small">(419) 631-4408</span>
       </div>
     </div>
 
@@ -168,19 +149,19 @@
       <div class="section-title">Your Accommodation</div>
       <div class="info-row">
         <span class="info-label">Property</span>
-        <input type="text" class="tbd-input" id="tbd-property" placeholder="TBD &#8212; Enter if known" oninput="markFilled(this)">
+        <span class="info-value">400 Beach Road Apt. 118</span>
       </div>
       <div class="info-row">
         <span class="info-label">Arrival</span>
-        <input type="text" class="tbd-input" id="tbd-arrival" placeholder="TBD &#8212; Enter date" oninput="markFilled(this)">
+        <span class="info-value">Thursday, April 30</span>
       </div>
       <div class="info-row">
         <span class="info-label">Departure</span>
-        <input type="text" class="tbd-input" id="tbd-departure" placeholder="TBD &#8212; Enter date" oninput="markFilled(this)">
+        <span class="info-value">Sunday, May 3</span>
       </div>
       <div class="info-row">
         <span class="info-label">Nights</span>
-        <input type="text" class="tbd-input" id="tbd-nights" placeholder="TBD" oninput="markFilled(this)" style="min-width:80px;max-width:100px;">
+        <span class="info-value">3</span>
       </div>
     </div>
 
@@ -263,7 +244,7 @@
 <div class="success-overlay" id="successOverlay">
   <div class="success-icon">&#10003;</div>
   <div class="success-title">Responses Sent!</div>
-  <div class="success-sub">Thanks, Katie! You&#39;re all set.</div>
+  <div class="success-sub">Thanks, Rylee &amp; Rich! You&#39;re all set.</div>
 </div>
 
 <script>
@@ -273,11 +254,6 @@
     pickleball: 'unknown',
     satgolf: 'unknown'
   };
-
-  function markFilled(el) {
-    if (el.value.trim()) { el.classList.add('filled'); }
-    else { el.classList.remove('filled'); }
-  }
 
   function toggleRSVP(field, value) {
     const yesBtn = document.getElementById(field + '-yes');
@@ -299,22 +275,13 @@
   function submitCard() {
     const dietary = document.getElementById('dietary').value;
     const notes = document.getElementById('notes').value;
-    const property = document.getElementById('tbd-property').value || 'TBD';
-    const arrival = document.getElementById('tbd-arrival').value || 'TBD';
-    const departure = document.getElementById('tbd-departure').value || 'TBD';
-    const nights = document.getElementById('tbd-nights').value || 'TBD';
 
-    const name = 'Mr. & Mrs. John Gardiner Richards Roddey';
-    const subject = encodeURIComponent('Katie Roddey \u2014 Guest Card RSVP');
+    const name = 'Mr. & Mrs. Richmond English Sheedy';
+    const subject = encodeURIComponent('Rylee & Rich Sheedy \u2014 Guest Card RSVP');
 
     let body = name + '\n';
     body += "John's Island Guest Card Responses\n";
     body += '================================\n\n';
-    body += 'Accommodation:\n';
-    body += '  Property: ' + property + '\n';
-    body += '  Arrival: ' + arrival + '\n';
-    body += '  Departure: ' + departure + '\n';
-    body += '  Nights: ' + nights + '\n\n';
     body += 'RSVP:\n';
     body += '  Thursday Cookout \u2014 Hosted by Nickle Siblings (6 PM, Tennis Court Pavilion): ' + (responses.cookout === 'unknown' ? '\u2014' : responses.cookout.toUpperCase()) + '\n';
     body += '  Friday Morning Golf (9:00\u20139:50 AM, North Course): ' + (responses.golf === 'unknown' ? '\u2014' : responses.golf.toUpperCase()) + '\n';
@@ -334,17 +301,17 @@
         body: JSON.stringify({
           timestamp: new Date().toISOString(),
           name: name,
-          guestCard: 'Katie Roddey',
+          guestCard: 'Rylee & Rich Sheedy',
           cookout: responses.cookout,
           golf: responses.golf,
           pickleball: responses.pickleball,
           satgolf: responses.satgolf,
           dietary: dietary || 'None',
           notes: notes || '',
-      property: property,
-      arrival: arrival,
-      departure: departure,
-      nights: nights,
+      property: '400 Beach Road Apt. 118',
+      arrival: 'Thursday, April 30',
+      departure: 'Sunday, May 3',
+      nights: '3',
           emailBody: body
         })
       }).catch(function() {});
