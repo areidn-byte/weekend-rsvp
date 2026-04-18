@@ -1,4 +1,4 @@
-h<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -106,6 +106,29 @@ h<!DOCTYPE html>
     background: linear-gradient(135deg, #fdfbf6 0%, #f8f4ec 100%);
     border-radius: 14px; border-left: 3px solid #d4a853;
   }
+  .website-link {
+    display: block; width: 100%; padding: 16px 18px;
+    background: linear-gradient(135deg, #fdfbf6 0%, #f8f4ec 100%);
+    border-radius: 14px; border-left: 3px solid #1a5c5a;
+    text-decoration: none; color: inherit;
+    transition: box-shadow 0.2s;
+  }
+  .website-link:active { box-shadow: 0 2px 12px rgba(26,92,90,0.15); }
+  .website-link-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px; font-weight: 600; color: #1a5c5a;
+    margin-bottom: 6px;
+  }
+  .website-link-url {
+    font-size: 13px; color: #1a5c5a; text-decoration: underline;
+    word-break: break-all;
+  }
+  .website-link-pw {
+    font-size: 12px; color: #999; margin-top: 6px;
+  }
+  .website-link-pw strong {
+    color: #2c2c2c; font-weight: 600; letter-spacing: 1px;
+  }
   .submit-btn {
     display: block; width: 100%; padding: 18px;
     background: linear-gradient(145deg, #1a5c5a 0%, #0e3d3b 100%);
@@ -172,15 +195,15 @@ h<!DOCTYPE html>
       </div>
       <div class="info-row">
         <span class="info-label">Arrival</span>
-        <input type="text" class="tbd-input" id="tbd-arrival" placeholder="TBD &#8212; Enter date" oninput="markFilled(this)">
+        <input type="text" class="tbd-input filled" id="tbd-arrival" value="Friday, May 1" placeholder="TBD &#8212; Enter date" oninput="markFilled(this)">
       </div>
       <div class="info-row">
         <span class="info-label">Departure</span>
-        <input type="text" class="tbd-input" id="tbd-departure" placeholder="TBD &#8212; Enter date" oninput="markFilled(this)">
+        <input type="text" class="tbd-input filled" id="tbd-departure" value="Sunday, May 3" placeholder="TBD &#8212; Enter date" oninput="markFilled(this)">
       </div>
       <div class="info-row">
         <span class="info-label">Nights</span>
-        <input type="text" class="tbd-input" id="tbd-nights" placeholder="TBD" oninput="markFilled(this)" style="min-width:80px;max-width:100px;">
+        <input type="text" class="tbd-input filled" id="tbd-nights" value="2" placeholder="TBD" oninput="markFilled(this)" style="min-width:80px;max-width:100px;">
       </div>
     </div>
 
@@ -222,7 +245,7 @@ h<!DOCTYPE html>
         <div class="rsvp-row needs-response" id="row-satgolf">
           <span class="rsvp-label">
             Saturday Morning Golf
-            <span class="rsvp-detail">DETAILS TBD &middot; John&#39;s Island</span>
+            <span class="rsvp-detail">10:00&ndash;10:50 AM Tee Times &middot; South Course</span>
           </span>
           <div class="btn-group">
             <button class="rsvp-btn btn-unselected" id="satgolf-yes" onclick="toggleRSVP('satgolf', 'yes')">Yes</button>
@@ -250,6 +273,17 @@ h<!DOCTYPE html>
       <div class="dinner-info">
         Guests are welcome to make their own dinner plans on Friday evening. There are a variety of nice restaurants in Vero Beach and for those with a John&#39;s Island Club guest membership card, dining at the Beach Club is a great option. In addition to offering a full dinner menu, on Friday night the Club will be offering its famous Pasta Night. Dinner is served there from 6:00pm &#8211; 8:30pm. The bride and groom will be having dinner at the Beach Club.
       </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-title">Wedding Website</div>
+      <a href="https://victoriaandreid2026.minted.us/" target="_blank" class="website-link">
+        <div class="website-link-title">Details for the Weekend</div>
+        <div class="website-link-url">victoriaandreid2026.minted.us</div>
+        <div class="website-link-pw">Password: <strong>vero2026</strong></div>
+      </a>
     </div>
 
     <button class="submit-btn" onclick="submitCard()">Send My Responses</button>
@@ -319,7 +353,7 @@ h<!DOCTYPE html>
     body += '  Thursday Cookout \u2014 Hosted by Nickle Siblings (6 PM, Tennis Court Pavilion): ' + (responses.cookout === 'unknown' ? '\u2014' : responses.cookout.toUpperCase()) + '\n';
     body += '  Friday Morning Golf (9:00\u20139:50 AM, North Course): ' + (responses.golf === 'unknown' ? '\u2014' : responses.golf.toUpperCase()) + '\n';
     body += '  Friday Pickleball & Lunch (11:30 AM, Pickleball Courts @ Tennis Facility): ' + (responses.pickleball === 'unknown' ? '\u2014' : responses.pickleball.toUpperCase()) + '\n';
-    body += '  Saturday Morning Golf (Details TBD, John\'s Island): ' + (responses.satgolf === 'unknown' ? '\u2014' : responses.satgolf.toUpperCase()) + '\n';
+    body += '  Saturday Morning Golf (10:00\u201310:50 AM, South Course): ' + (responses.satgolf === 'unknown' ? '\u2014' : responses.satgolf.toUpperCase()) + '\n';
     body += '\nDietary Restrictions (Reception & Dinner): ' + (dietary || 'None') + '\n';
     if (notes) {
       body += '\nCorrections / Notes:\n' + notes + '\n';
